@@ -1,0 +1,61 @@
+@use '@styles/tokens' as *;
+
+.avatar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: $radius-full;
+  overflow: hidden;
+  flex-shrink: 0;
+  transition: border-color $transition-fast;
+  border: 2px solid transparent;
+
+  &:hover {
+    border-color: $color-gold;
+  }
+
+  &.sm {
+    width: 32px;
+    height: 32px;
+  }
+
+  &.md {
+    width: 40px;
+    height: 40px;
+  }
+
+  &.lg {
+    width: 56px;
+    height: 56px;
+  }
+
+  &.fallback {
+    background: $color-bg-elevated;
+    border: 2px solid $color-border;
+  }
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.initials {
+  color: $color-gold;
+  font-weight: $font-weight-semibold;
+  letter-spacing: $letter-spacing-wide;
+  user-select: none;
+
+  .sm & {
+    font-size: $font-size-xs;
+  }
+
+  .md & {
+    font-size: $font-size-sm;
+  }
+
+  .lg & {
+    font-size: $font-size-lg;
+  }
+}

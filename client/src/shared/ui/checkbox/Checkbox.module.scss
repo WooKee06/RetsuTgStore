@@ -1,0 +1,42 @@
+@use '@styles/tokens' as *;
+
+.wrapper {
+  display: flex;
+  align-items: center;
+  gap: $space-3;
+  cursor: pointer;
+  user-select: none;
+}
+
+.box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  background: $color-bg-tertiary;
+  border: 1.5px solid $color-border-light;
+  border-radius: $radius-sm;
+  flex-shrink: 0;
+  transition: all $transition-fast;
+  color: $color-white;
+
+  &.checked {
+    background: $color-gold;
+    border-color: $color-gold;
+  }
+}
+
+.input {
+  position: absolute;
+  width: 0;
+  height: 0;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.label {
+  font-size: $font-size-base;
+  color: $color-text-secondary;
+  line-height: $line-height-normal;
+}

@@ -1,0 +1,140 @@
+@use '@styles/tokens' as *;
+
+.page {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background: $color-bg-primary;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: $space-3;
+  padding: $space-3 $space-4;
+  background: rgba(10, 10, 10, 0.95);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid $color-border;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.searchInput {
+  flex: 1;
+}
+
+.cancelBtn {
+  background: none;
+  border: none;
+  color: $color-text-gold;
+  font-size: $font-size-sm;
+  font-weight: $font-weight-medium;
+  cursor: pointer;
+  white-space: nowrap;
+  padding: $space-2;
+  transition: opacity $transition-fast;
+
+  &:active {
+    opacity: 0.7;
+  }
+}
+
+.content {
+  flex: 1;
+  padding: $space-4;
+  max-width: $max-width;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.popular {
+  margin-bottom: $space-8;
+}
+
+.sectionTitle {
+  font-size: $font-size-base;
+  font-weight: $font-weight-semibold;
+  color: $color-text-primary;
+  margin: 0 0 $space-4;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $space-2;
+}
+
+.tag {
+  padding: $space-2 $space-4;
+  background: transparent;
+  border: 1px solid $color-border;
+  border-radius: $radius-full;
+  color: $color-text-secondary;
+  font-size: $font-size-sm;
+  cursor: pointer;
+  transition: all $transition-fast;
+
+  &:hover,
+  &:active {
+    border-color: $color-text-gold;
+    color: $color-text-gold;
+    background: rgba(201, 168, 76, 0.06);
+  }
+}
+
+.recent {
+  margin-bottom: $space-8;
+}
+
+.recentItem {
+  display: flex;
+  align-items: center;
+  gap: $space-3;
+  width: 100%;
+  padding: $space-3 0;
+  background: none;
+  border: none;
+  border-bottom: 1px solid $color-border;
+  color: $color-text-secondary;
+  font-size: $font-size-sm;
+  cursor: pointer;
+  text-align: left;
+  transition: color $transition-fast;
+
+  &:last-child {
+    border-bottom: none;
+  }
+
+  &:active {
+    color: $color-text-primary;
+  }
+
+  svg {
+    flex-shrink: 0;
+    color: $color-text-tertiary;
+  }
+}
+
+.resultCount {
+  font-size: $font-size-sm;
+  color: $color-text-secondary;
+  margin: 0 0 $space-4;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: $space-3;
+}
+
+.skeletonCard {
+  display: flex;
+  flex-direction: column;
+  gap: $space-2;
+}
+
+.skeletonText {
+  margin-top: $space-1;
+}

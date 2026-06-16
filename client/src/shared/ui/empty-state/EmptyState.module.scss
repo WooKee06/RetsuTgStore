@@ -1,0 +1,49 @@
+@use '@styles/tokens' as *;
+
+.emptyState {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: $space-10 $space-6;
+  text-align: center;
+}
+
+.icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 64px;
+  height: 64px;
+  border-radius: $radius-full;
+  background: $color-bg-tertiary;
+  color: $color-text-tertiary;
+  margin-bottom: $space-4;
+
+  svg {
+    width: 28px;
+    height: 28px;
+  }
+}
+
+.title {
+  margin: 0;
+  font-family: $font-family;
+  font-size: $font-size-md;
+  font-weight: $font-weight-semibold;
+  color: $color-text-primary;
+  line-height: $line-height-snug;
+}
+
+.description {
+  margin: $space-2 0 0;
+  font-family: $font-family;
+  font-size: $font-size-sm;
+  color: $color-text-secondary;
+  line-height: $line-height-normal;
+  max-width: 260px;
+}
+
+.action {
+  margin-top: $space-5;
+}

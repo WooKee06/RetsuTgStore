@@ -1,0 +1,40 @@
+@use '@styles/tokens' as *;
+
+.counter {
+  display: flex;
+  align-items: center;
+  gap: $space-3;
+}
+
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  background: $color-bg-tertiary;
+  border: 1px solid $color-border;
+  border-radius: $radius-md;
+  color: $color-text-primary;
+  cursor: pointer;
+  transition: all $transition-fast;
+
+  &:hover:not(.disabled) {
+    background: $color-bg-elevated;
+    border-color: $color-border-light;
+  }
+
+  &.disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+  }
+}
+
+.value {
+  min-width: 24px;
+  text-align: center;
+  font-size: $font-size-lg;
+  font-weight: $font-weight-semibold;
+  color: $color-gold;
+  font-variant-numeric: tabular-nums;
+}

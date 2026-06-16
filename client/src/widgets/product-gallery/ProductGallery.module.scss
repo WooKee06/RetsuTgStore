@@ -1,0 +1,71 @@
+@use '@styles/tokens' as *;
+
+.gallery {
+  position: relative;
+  width: 100%;
+  border-radius: $radius-lg;
+  overflow: hidden;
+  background: $color-bg-secondary;
+}
+
+.swiper {
+  width: 100%;
+
+  :global {
+    .swiper-pagination {
+      bottom: 12px !important;
+    }
+
+    .swiper-pagination-bullet {
+      width: 6px;
+      height: 6px;
+      background: $color-text-tertiary;
+      opacity: 1;
+      transition: all $transition-fast;
+    }
+
+    .swiper-pagination-bullet-active {
+      width: 20px;
+      border-radius: $radius-full;
+      background: $color-gold;
+    }
+
+    .swiper-zoom-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+}
+
+.slide {
+  aspect-ratio: 3 / 4;
+  overflow: hidden;
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+.counter {
+  position: absolute;
+  top: $space-3;
+  right: $space-3;
+  z-index: 2;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(8px);
+  padding: $space-1 $space-3;
+  border-radius: $radius-full;
+}
+
+.counterText {
+  font-size: $font-size-xs;
+  font-weight: $font-weight-medium;
+  color: $color-white;
+  font-variant-numeric: tabular-nums;
+}

@@ -1,0 +1,177 @@
+@use '@styles/tokens' as *;
+
+.card {
+  position: relative;
+  border-radius: $radius-lg;
+  background: $color-bg-card;
+  border: 1px solid $color-border;
+  overflow: hidden;
+  cursor: pointer;
+  transition: border-color $transition-fast;
+
+  &:active {
+    border-color: $color-border-light;
+  }
+}
+
+.grid {
+  display: flex;
+  flex-direction: column;
+}
+
+.imageWrap {
+  position: relative;
+  aspect-ratio: 3 / 4;
+  overflow: hidden;
+  background: $color-bg-tertiary;
+}
+
+.imagePlaceholder {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    110deg,
+    $color-bg-tertiary 0%,
+    $color-bg-elevated 50%,
+    $color-bg-tertiary 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.5s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity $transition-base, transform 600ms cubic-bezier(0.25, 0.1, 0.25, 1);
+
+  &Loaded {
+    opacity: 1;
+  }
+}
+
+.card:hover .image {
+  transform: scale(1.04);
+}
+
+.badge {
+  position: absolute;
+  top: $space-2;
+  left: $space-2;
+  z-index: 2;
+}
+
+.heartBtn {
+  position: absolute;
+  top: $space-2;
+  right: $space-2;
+  z-index: 2;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: $color-bg-overlay;
+  border: none;
+  border-radius: $radius-full;
+  cursor: pointer;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  transition: background $transition-fast, transform $transition-fast;
+
+  &:active {
+    transform: scale(0.9);
+  }
+}
+
+.heartIcon {
+  width: 16px;
+  height: 16px;
+  fill: none;
+  stroke: $color-white;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  transition: fill $transition-fast, stroke $transition-fast;
+}
+
+.heartFilled {
+  fill: $color-error;
+  stroke: $color-error;
+}
+
+.content {
+  padding: $space-3;
+  display: flex;
+  flex-direction: column;
+  gap: $space-1;
+}
+
+.brand {
+  font-size: $font-size-xs;
+  font-weight: $font-weight-medium;
+  color: $color-text-gold;
+  text-transform: uppercase;
+  letter-spacing: $letter-spacing-wider;
+}
+
+.name {
+  font-size: $font-size-base;
+  font-weight: $font-weight-medium;
+  color: $color-text-primary;
+  line-height: $line-height-snug;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  margin: 0;
+}
+
+.list {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  gap: 0;
+}
+
+.listImageWrap {
+  position: relative;
+  width: 120px;
+  min-height: 140px;
+  flex-shrink: 0;
+  overflow: hidden;
+  background: $color-bg-tertiary;
+}
+
+.listImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.listBadge {
+  position: absolute;
+  top: $space-2;
+  left: $space-2;
+  z-index: 2;
+}
+
+.listContent {
+  flex: 1;
+  padding: $space-3;
+  display: flex;
+  flex-direction: column;
+  gap: $space-1;
+  min-width: 0;
+}
+
+.listHeart {
+  position: absolute;
+  top: $space-2;
+  right: $space-2;
+}

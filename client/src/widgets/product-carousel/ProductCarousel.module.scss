@@ -1,0 +1,52 @@
+@use '@styles/tokens' as *;
+
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: $space-4;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 $space-4;
+}
+
+.title {
+  font-size: $font-size-lg;
+  font-weight: $font-weight-semibold;
+  color: $color-text-primary;
+  margin: 0;
+}
+
+.viewAll {
+  font-size: $font-size-sm;
+  font-weight: $font-weight-medium;
+  color: $color-text-gold;
+  text-decoration: none;
+  transition: opacity $transition-fast;
+
+  &:active {
+    opacity: 0.7;
+  }
+}
+
+.scroll {
+  display: flex;
+  gap: $space-3;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  padding: 0 $space-4;
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+.item {
+  flex: 0 0 160px;
+  scroll-snap-align: start;
+}

@@ -1,0 +1,149 @@
+@use '@styles/tokens' as *;
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: $z-overlay;
+  background: $color-bg-primary;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: $space-3;
+  padding: $space-4;
+  padding-top: $space-8;
+  flex-shrink: 0;
+}
+
+.searchInput {
+  flex: 1;
+}
+
+.cancel {
+  flex-shrink: 0;
+  height: 44px;
+  padding: 0 $space-3;
+  background: transparent;
+  border: none;
+  color: $color-gold;
+  font-size: $font-size-base;
+  font-weight: $font-weight-medium;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.content {
+  flex: 1;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  padding: 0 $space-4 $space-8;
+}
+
+.section {
+  margin-bottom: $space-6;
+}
+
+.sectionHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: $space-3;
+}
+
+.sectionTitle {
+  font-size: $font-size-sm;
+  font-weight: $font-weight-semibold;
+  color: $color-text-secondary;
+  text-transform: uppercase;
+  letter-spacing: $letter-spacing-wider;
+  margin: 0;
+}
+
+.clearBtn {
+  background: transparent;
+  border: none;
+  color: $color-text-tertiary;
+  font-size: $font-size-sm;
+  cursor: pointer;
+  padding: 0;
+  transition: color $transition-fast;
+
+  &:hover {
+    color: $color-text-primary;
+  }
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $space-2;
+}
+
+.tag {
+  display: inline-flex;
+  align-items: center;
+  gap: $space-1;
+  height: 36px;
+  padding: 0 $space-4;
+  background: $color-bg-tertiary;
+  border: 1px solid $color-border;
+  border-radius: $radius-full;
+  color: $color-text-secondary;
+  font-size: $font-size-sm;
+  cursor: pointer;
+  transition: all $transition-fast;
+  white-space: nowrap;
+
+  &:hover {
+    background: $color-bg-elevated;
+    border-color: $color-border-light;
+    color: $color-text-primary;
+  }
+
+  svg {
+    flex-shrink: 0;
+    opacity: 0.5;
+  }
+}
+
+.popularTag {
+  background: $color-gold-muted;
+  border-color: rgba(201, 168, 76, 0.2);
+  color: $color-text-gold;
+
+  &:hover {
+    background: rgba(201, 168, 76, 0.25);
+    border-color: rgba(201, 168, 76, 0.35);
+    color: $color-gold;
+  }
+}
+
+.results {
+  padding-bottom: $space-8;
+}
+
+.resultsGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: $space-3;
+}
+
+.empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: $space-16 0;
+  gap: $space-4;
+  color: $color-text-tertiary;
+}
+
+.emptyText {
+  font-size: $font-size-base;
+  color: $color-text-tertiary;
+  margin: 0;
+}

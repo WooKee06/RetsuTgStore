@@ -1,0 +1,154 @@
+@use '@styles/tokens' as *;
+
+.page {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background: $color-bg-primary;
+}
+
+.content {
+  flex: 1;
+  padding: 0 $space-4 $space-16;
+  max-width: $max-width;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: $space-8 0 $space-6;
+  text-align: center;
+}
+
+.name {
+  font-size: $font-size-2xl;
+  font-weight: $font-weight-bold;
+  color: $color-text-primary;
+  margin: $space-4 0 $space-1;
+  letter-spacing: 0.02em;
+}
+
+.email {
+  font-size: $font-size-sm;
+  color: $color-text-secondary;
+  margin: 0;
+}
+
+.stats {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: $color-bg-card;
+  border: 1px solid $color-border;
+  border-radius: $radius-xl;
+  padding: $space-5 $space-4;
+  margin-bottom: $space-6;
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+  gap: $space-1;
+}
+
+.statValue {
+  font-size: $font-size-xl;
+  font-weight: $font-weight-bold;
+  color: $color-text-primary;
+}
+
+.statLabel {
+  font-size: $font-size-xs;
+  color: $color-text-secondary;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.statDivider {
+  width: 1px;
+  height: 32px;
+  background: $color-border;
+}
+
+.menu {
+  display: flex;
+  flex-direction: column;
+  background: $color-bg-card;
+  border: 1px solid $color-border;
+  border-radius: $radius-xl;
+  overflow: hidden;
+  margin-bottom: $space-6;
+}
+
+.menuItem {
+  display: flex;
+  align-items: center;
+  gap: $space-3;
+  width: 100%;
+  padding: $space-4;
+  background: none;
+  border: none;
+  border-bottom: 1px solid $color-border;
+  cursor: pointer;
+  color: $color-text-primary;
+  font-size: $font-size-base;
+  text-align: left;
+  transition: background $transition-fast;
+
+  &:last-child {
+    border-bottom: none;
+  }
+
+  &:active {
+    background: $color-bg-tertiary;
+  }
+
+  svg:last-child {
+    margin-left: auto;
+    color: $color-text-tertiary;
+    flex-shrink: 0;
+  }
+}
+
+.menuIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  color: $color-text-gold;
+  flex-shrink: 0;
+}
+
+.menuLabel {
+  flex: 1;
+  font-weight: $font-weight-medium;
+}
+
+.menuValue {
+  font-size: $font-size-sm;
+  color: $color-text-secondary;
+}
+
+.logoutWrap {
+  margin-bottom: $space-6;
+}
+
+.logout {
+  color: #e74c3c !important;
+  border-color: rgba(231, 76, 60, 0.2) !important;
+
+  &:hover,
+  &:active {
+    background: rgba(231, 76, 60, 0.08) !important;
+  }
+
+  svg {
+    color: #e74c3c;
+  }
+}

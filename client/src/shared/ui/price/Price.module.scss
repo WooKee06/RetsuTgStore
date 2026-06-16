@@ -1,0 +1,63 @@
+@use '@styles/tokens' as *;
+
+.price {
+  display: inline-flex;
+  align-items: baseline;
+  gap: $space-2;
+  flex-wrap: wrap;
+}
+
+.current {
+  font-family: $font-family;
+  font-weight: $font-weight-bold;
+  color: $color-text-primary;
+}
+
+.old {
+  font-family: $font-family;
+  font-weight: $font-weight-regular;
+  color: $color-text-tertiary;
+  text-decoration: line-through;
+}
+
+.discount {
+  font-family: $font-family;
+  font-weight: $font-weight-semibold;
+  color: $color-error;
+}
+
+.sm {
+  .current {
+    font-size: $font-size-base;
+  }
+  .old {
+    font-size: $font-size-xs;
+  }
+  .discount {
+    font-size: $font-size-xs;
+  }
+}
+
+.md {
+  .current {
+    font-size: $font-size-lg;
+  }
+  .old {
+    font-size: $font-size-sm;
+  }
+  .discount {
+    font-size: $font-size-sm;
+  }
+}
+
+.lg {
+  .current {
+    font-size: $font-size-2xl;
+  }
+  .old {
+    font-size: $font-size-base;
+  }
+  .discount {
+    font-size: $font-size-base;
+  }
+}

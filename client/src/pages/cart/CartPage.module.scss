@@ -1,0 +1,158 @@
+@use '@styles/tokens' as *;
+
+.page {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  min-height: 100dvh;
+  background: $color-bg-primary;
+}
+
+.content {
+  flex: 1;
+  padding: $space-4;
+  padding-bottom: calc($bottom-nav-height + env(safe-area-inset-bottom, 0px) + $space-4);
+  overflow-x: hidden;
+}
+
+.titleRow {
+  display: flex;
+  align-items: baseline;
+  gap: $space-3;
+  margin-bottom: $space-5;
+}
+
+.title {
+  font-size: $font-size-2xl;
+  font-weight: $font-weight-bold;
+  color: $color-text-primary;
+  letter-spacing: $letter-spacing-tight;
+}
+
+.count {
+  font-size: $font-size-sm;
+  color: $color-text-tertiary;
+  font-weight: $font-weight-regular;
+}
+
+.emptyWrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 50vh;
+}
+
+.body {
+  display: flex;
+  flex-direction: column;
+  gap: $space-5;
+}
+
+.items {
+  display: flex;
+  flex-direction: column;
+  gap: $space-3;
+}
+
+.summary {
+  display: flex;
+  flex-direction: column;
+  gap: $space-4;
+  padding: $space-5;
+  background: $color-bg-card;
+  border: 1px solid $color-border;
+  border-radius: $radius-xl;
+}
+
+.promoCode {
+  display: flex;
+  gap: $space-2;
+  align-items: flex-start;
+}
+
+.promoInput {
+  flex: 1;
+}
+
+.promoSuccess {
+  display: flex;
+  align-items: center;
+  gap: $space-2;
+  padding: $space-2 $space-3;
+  background: rgba($color-success, 0.1);
+  border-radius: $radius-md;
+  font-size: $font-size-sm;
+  color: $color-success;
+  font-weight: $font-weight-medium;
+  overflow: hidden;
+
+  svg {
+    flex-shrink: 0;
+  }
+}
+
+.totalLines {
+  display: flex;
+  flex-direction: column;
+  gap: $space-3;
+}
+
+.totalLine {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.totalLabel {
+  font-size: $font-size-base;
+  color: $color-text-secondary;
+}
+
+.totalValue {
+  font-size: $font-size-base;
+  color: $color-text-primary;
+  font-weight: $font-weight-medium;
+}
+
+.discountLine {
+  opacity: 0.8;
+}
+
+.discountLabel {
+  font-size: $font-size-sm;
+  color: $color-success;
+}
+
+.discountValue {
+  font-size: $font-size-sm;
+  color: $color-success;
+  font-weight: $font-weight-medium;
+}
+
+.freeShipping {
+  font-size: $font-size-base;
+  color: $color-success;
+  font-weight: $font-weight-medium;
+}
+
+.divider {
+  height: 1px;
+  background: $color-border;
+  margin: $space-1 0;
+}
+
+.grandTotal {
+  padding-top: $space-1;
+}
+
+.grandTotalLabel {
+  font-size: $font-size-md;
+  font-weight: $font-weight-semibold;
+  color: $color-text-primary;
+}
+
+.grandTotalValue {
+  font-size: $font-size-xl;
+  font-weight: $font-weight-bold;
+  color: $color-text-primary;
+}

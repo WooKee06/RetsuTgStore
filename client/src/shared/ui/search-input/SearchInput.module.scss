@@ -1,0 +1,61 @@
+@use '@styles/tokens' as *;
+
+.wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  background: $color-bg-tertiary;
+  border-radius: $radius-xl;
+  border: 1px solid $color-border;
+  transition: border-color $transition-fast;
+  padding: 0 $space-4;
+
+  &:focus-within {
+    border-color: $color-gold;
+  }
+}
+
+.icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: $color-text-tertiary;
+  flex-shrink: 0;
+  margin-right: $space-2;
+}
+
+.input {
+  flex: 1;
+  height: 44px;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: $color-text-primary;
+  font-size: $font-size-base;
+  font-family: inherit;
+
+  &::placeholder {
+    color: $color-text-tertiary;
+  }
+}
+
+.clear {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  background: $color-bg-elevated;
+  border: none;
+  border-radius: $radius-full;
+  color: $color-text-secondary;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: all $transition-fast;
+
+  &:hover {
+    background: $color-border-light;
+    color: $color-text-primary;
+  }
+}

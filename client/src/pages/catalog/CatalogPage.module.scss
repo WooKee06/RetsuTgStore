@@ -1,0 +1,155 @@
+@use '@styles/tokens' as *;
+
+.page {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  min-height: 100dvh;
+  background: $color-bg-primary;
+}
+
+.content {
+  flex: 1;
+  padding-bottom: calc($bottom-nav-height + env(safe-area-inset-bottom, 0px) + $space-4);
+  overflow-x: hidden;
+}
+
+.topBar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: $space-3 $space-4;
+}
+
+.title {
+  font-size: $font-size-2xl;
+  font-weight: $font-weight-bold;
+  color: $color-text-primary;
+  margin: 0;
+  letter-spacing: $letter-spacing-tight;
+}
+
+.filterBtn {
+  display: flex;
+  align-items: center;
+  gap: $space-2;
+  padding: $space-2 $space-3;
+  font-size: $font-size-sm;
+  font-weight: $font-weight-medium;
+  color: $color-text-primary;
+  background: $color-bg-secondary;
+  border: 1px solid $color-border;
+  border-radius: $radius-md;
+  cursor: pointer;
+  transition: background $transition-fast, border-color $transition-fast;
+
+  &:active {
+    background: $color-bg-tertiary;
+    border-color: $color-border-light;
+  }
+
+  svg {
+    flex-shrink: 0;
+  }
+}
+
+// ---- Active Filters ----
+
+.activeFilters {
+  padding: 0 $space-4 $space-3;
+  overflow: hidden;
+}
+
+.chipsRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $space-2;
+  align-items: center;
+}
+
+.chip {
+  display: flex;
+  align-items: center;
+  gap: $space-1;
+  padding: $space-1 $space-2 $space-1 $space-3;
+  background: $color-gold-muted;
+  border: 1px solid $color-border-gold;
+  border-radius: $radius-full;
+  cursor: pointer;
+  transition: background $transition-fast;
+
+  &:active {
+    background: rgba(201, 168, 76, 0.25);
+  }
+}
+
+.chipLabel {
+  font-size: $font-size-xs;
+  font-weight: $font-weight-medium;
+  color: $color-text-gold;
+  white-space: nowrap;
+}
+
+.chipClose {
+  color: $color-text-gold;
+  opacity: 0.7;
+  transition: opacity $transition-fast;
+
+  .chip:hover & {
+    opacity: 1;
+  }
+}
+
+.clearAll {
+  font-size: $font-size-xs;
+  font-weight: $font-weight-medium;
+  color: $color-text-tertiary;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: $space-1 $space-2;
+  transition: color $transition-fast;
+
+  &:active {
+    color: $color-text-secondary;
+  }
+}
+
+// ---- Product Grid ----
+
+.resultCount {
+  padding: 0 $space-4 $space-3;
+  font-size: $font-size-sm;
+  color: $color-text-tertiary;
+}
+
+.countNumber {
+  color: $color-text-gold;
+  font-weight: $font-weight-semibold;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: $space-3;
+  padding: 0 $space-4;
+}
+
+.loadMore {
+  padding: $space-6 $space-4;
+}
+
+// ---- Skeleton Grid ----
+
+.skeletonCard {
+  display: flex;
+  flex-direction: column;
+  gap: $space-2;
+}
+
+.skeletonContent {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 0 $space-1;
+}

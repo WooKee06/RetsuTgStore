@@ -1,0 +1,67 @@
+@use '@styles/tokens' as *;
+
+.header {
+  position: sticky;
+  top: 0;
+  z-index: $z-sticky;
+  background: rgba(10, 10, 10, 0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid $color-border;
+}
+
+.inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: $navbar-height;
+  padding: 0 $space-4;
+  max-width: $max-width;
+  margin: 0 auto;
+}
+
+.logo {
+  font-size: $font-size-xl;
+  font-weight: $font-weight-bold;
+  color: $color-text-primary;
+  letter-spacing: $letter-spacing-widest;
+  margin: 0;
+  user-select: none;
+}
+
+.logoR {
+  color: $color-text-gold;
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: $space-3;
+}
+
+.searchBtn {
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: none;
+  cursor: pointer;
+  border-radius: $radius-full;
+  transition: background $transition-fast;
+
+  &:active {
+    background: $color-bg-tertiary;
+  }
+}
+
+.searchIcon {
+  width: 20px;
+  height: 20px;
+  fill: none;
+  stroke: $color-text-primary;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
