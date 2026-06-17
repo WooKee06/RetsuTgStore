@@ -1,4 +1,4 @@
-@use '@styles/tokens' as *;
+@use "@styles/tokens" as *;
 
 .page {
   display: flex;
@@ -10,7 +10,9 @@
 
 .content {
   flex: 1;
-  padding-bottom: calc($bottom-nav-height + env(safe-area-inset-bottom, 0px) + $space-4);
+  padding-bottom: calc(
+    $bottom-nav-height + env(safe-area-inset-bottom, 0px) + $space-4
+  );
   overflow-x: hidden;
 }
 
@@ -27,7 +29,9 @@
   border: 1px solid $color-border;
   border-radius: $radius-lg;
   cursor: pointer;
-  transition: border-color $transition-fast, background $transition-fast;
+  transition:
+    border-color $transition-fast,
+    background $transition-fast;
 
   &:active {
     border-color: $color-border-light;
@@ -49,6 +53,7 @@
   display: flex;
   flex-direction: column;
   gap: $space-6;
+  padding: 0 10px;
 }
 
 // ---- Skeleton Styles ----

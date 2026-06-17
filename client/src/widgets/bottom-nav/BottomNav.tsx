@@ -1,10 +1,10 @@
-import React from 'react';
-import { NavLink } from 'react-router-dom';
-import { motion } from 'framer-motion';
-import { observer } from 'mobx-react-lite';
-import { cartStore, favoriteStore } from '@store';
-import { cn } from '@shared/lib/utils';
-import styles from './BottomNav.module.scss';
+import React from "react";
+import { NavLink } from "react-router-dom";
+import { motion } from "framer-motion";
+import { observer } from "mobx-react-lite";
+import { cartStore, favoriteStore } from "@store";
+import { cn } from "@shared/lib/utils";
+import styles from "./BottomNav.module.scss";
 
 interface NavItem {
   path: string;
@@ -15,8 +15,8 @@ interface NavItem {
 
 const navItems: NavItem[] = [
   {
-    path: '/',
-    label: 'Home',
+    path: "/",
+    label: "Home",
     icon: (
       <svg viewBox="0 0 24 24" className={styles.icon}>
         <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
@@ -25,8 +25,8 @@ const navItems: NavItem[] = [
     ),
   },
   {
-    path: '/catalog',
-    label: 'Catalog',
+    path: "/catalog",
+    label: "Catalog",
     icon: (
       <svg viewBox="0 0 24 24" className={styles.icon}>
         <rect x="3" y="3" width="7" height="7" rx="1" />
@@ -37,8 +37,8 @@ const navItems: NavItem[] = [
     ),
   },
   {
-    path: '/favorites',
-    label: 'Favorites',
+    path: "/favorites",
+    label: "Favorites",
     icon: (
       <svg viewBox="0 0 24 24" className={styles.icon}>
         <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
@@ -46,8 +46,8 @@ const navItems: NavItem[] = [
     ),
   },
   {
-    path: '/cart',
-    label: 'Cart',
+    path: "/cart",
+    label: "Cart",
     icon: (
       <svg viewBox="0 0 24 24" className={styles.icon}>
         <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z" />
@@ -57,8 +57,8 @@ const navItems: NavItem[] = [
     ),
   },
   {
-    path: '/profile',
-    label: 'Profile',
+    path: "/profile",
+    label: "Profile",
     icon: (
       <svg viewBox="0 0 24 24" className={styles.icon}>
         <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
@@ -73,8 +73,8 @@ export const BottomNav: React.FC = observer(() => {
   const favCount = favoriteStore.count;
 
   const badges: Record<string, number> = {
-    '/favorites': favCount,
-    '/cart': cartCount,
+    "/favorites": favCount,
+    "/cart": cartCount,
   };
 
   return (
@@ -84,7 +84,7 @@ export const BottomNav: React.FC = observer(() => {
           <NavLink
             key={item.path}
             to={item.path}
-            end={item.path === '/'}
+            end={item.path === "/"}
             className={({ isActive }) =>
               cn(styles.link, isActive && styles.active)
             }
@@ -93,17 +93,16 @@ export const BottomNav: React.FC = observer(() => {
               <motion.div
                 className={styles.linkInner}
                 whileTap={{ scale: 0.88 }}
-                transition={{ type: 'spring', stiffness: 400, damping: 20 }}
+                transition={{ type: "spring", stiffness: 400, damping: 20 }}
               >
                 <div className={styles.iconWrap}>
                   {item.icon}
                   {badges[item.path] !== undefined && badges[item.path] > 0 && (
                     <span className={styles.badge}>
-                      {badges[item.path] > 99 ? '99+' : badges[item.path]}
+                      {badges[item.path] > 99 ? "99+" : badges[item.path]}
                     </span>
                   )}
                 </div>
-                <span className={styles.label}>{item.label}</span>
               </motion.div>
             )}
           </NavLink>

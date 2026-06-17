@@ -1,17 +1,17 @@
-import React, { useState, useCallback, useMemo } from 'react';
-import { useSearchParams } from 'react-router-dom';
-import { motion, AnimatePresence } from 'framer-motion';
-import { Header } from '@widgets/header';
-import { BottomNav } from '@widgets/bottom-nav';
-import { ProductCard } from '@widgets/product-card';
-import { FilterSheet } from '@widgets/filters';
-import { EmptyState } from '@shared/ui/empty-state';
-import { Skeleton } from '@shared/ui/skeleton';
-import { Button } from '@shared/ui/button';
-import { staggerContainer, staggerItem } from '@shared/lib/motion';
-import { useProducts } from '@api/hooks';
-import type { SearchFilters, SortOption } from '@shared/types';
-import styles from './CatalogPage.module.scss';
+import React, { useState, useCallback, useMemo } from "react";
+import { useSearchParams } from "react-router-dom";
+import { motion, AnimatePresence } from "framer-motion";
+import { Header } from "@widgets/header";
+import { BottomNav } from "@widgets/bottom-nav";
+import { ProductCard } from "@widgets/product-card";
+import { FilterSheet } from "@widgets/filters";
+import { EmptyState } from "@shared/ui/empty-state";
+import { Skeleton } from "@shared/ui/skeleton";
+import { Button } from "@shared/ui/button";
+import { staggerContainer, staggerItem } from "@shared/lib/motion";
+import { useProducts } from "@api/hooks";
+import type { SearchFilters, SortOption } from "@shared/types";
+import styles from "./CatalogPage.module.scss";
 
 const PAGE_SIZE = 20;
 
@@ -46,7 +46,7 @@ function FilterChip({ label, onRemove }: FilterChipProps) {
       initial={{ opacity: 0, scale: 0.8 }}
       animate={{ opacity: 1, scale: 1 }}
       exit={{ opacity: 0, scale: 0.8 }}
-      transition={{ type: 'spring', stiffness: 300, damping: 25 }}
+      transition={{ type: "spring", stiffness: 300, damping: 25 }}
       type="button"
     >
       <span className={styles.chipLabel}>{label}</span>
@@ -69,14 +69,18 @@ function FilterChip({ label, onRemove }: FilterChipProps) {
 
 function filtersFromParams(params: URLSearchParams): SearchFilters {
   return {
-    query: params.get('query') || '',
-    category: params.get('category') || undefined,
-    brand: params.get('brand') || undefined,
-    minPrice: params.get('minPrice') ? Number(params.get('minPrice')) : undefined,
-    maxPrice: params.get('maxPrice') ? Number(params.get('maxPrice')) : undefined,
-    size: params.get('size') || undefined,
-    color: params.get('color') || undefined,
-    sort: (params.get('sort') as SortOption) || undefined,
+    query: params.get("query") || "",
+    category: params.get("category") || undefined,
+    brand: params.get("brand") || undefined,
+    minPrice: params.get("minPrice")
+      ? Number(params.get("minPrice"))
+      : undefined,
+    maxPrice: params.get("maxPrice")
+      ? Number(params.get("maxPrice"))
+      : undefined,
+    size: params.get("size") || undefined,
+    color: params.get("color") || undefined,
+    sort: (params.get("sort") as SortOption) || undefined,
   };
 }
 
@@ -85,8 +89,10 @@ function paramsFromFilters(filters: SearchFilters): Record<string, string> {
   if (filters.query) entries.query = filters.query;
   if (filters.category) entries.category = filters.category;
   if (filters.brand) entries.brand = filters.brand;
-  if (filters.minPrice !== undefined) entries.minPrice = String(filters.minPrice);
-  if (filters.maxPrice !== undefined) entries.maxPrice = String(filters.maxPrice);
+  if (filters.minPrice !== undefined)
+    entries.minPrice = String(filters.minPrice);
+  if (filters.maxPrice !== undefined)
+    entries.maxPrice = String(filters.maxPrice);
   if (filters.size) entries.size = filters.size;
   if (filters.color) entries.color = filters.color;
   if (filters.sort) entries.sort = filters.sort;
@@ -94,20 +100,20 @@ function paramsFromFilters(filters: SearchFilters): Record<string, string> {
 }
 
 const CATEGORY_MAP: Record<string, string> = {
-  'cat-1': 'Men',
-  'cat-2': 'Women',
-  'cat-3': 'Shoes',
-  'cat-4': 'Accessories',
-  'cat-5': 'Outerwear',
-  'cat-6': 'Sportswear',
+  "cat-1": "Men",
+  "cat-2": "Women",
+  "cat-3": "Shoes",
+  "cat-4": "Accessories",
+  "cat-5": "Outerwear",
+  "cat-6": "Sportswear",
 };
 
 const SORT_LABELS: Record<string, string> = {
-  popular: 'Popular',
-  newest: 'Newest',
-  'price-asc': 'Price Low-High',
-  'price-desc': 'Price High-Low',
-  rating: 'Rating',
+  popular: "Popular",
+  newest: "Newest",
+  "price-asc": "Price Low-High",
+  "price-desc": "Price High-Low",
+  rating: "Rating",
 };
 
 const CatalogPage: React.FC = () => {
@@ -115,7 +121,10 @@ const CatalogPage: React.FC = () => {
   const [isFiltersOpen, setIsFiltersOpen] = useState(false);
   const [visibleCount, setVisibleCount] = useState(PAGE_SIZE);
 
-  const filters = useMemo(() => filtersFromParams(searchParams), [searchParams]);
+  const filters = useMemo(
+    () => filtersFromParams(searchParams),
+    [searchParams],
+  );
 
   const { data: productsResult, isLoading } = useProducts(filters);
   const allProducts = productsResult?.data ?? [];
@@ -157,12 +166,22 @@ const CatalogPage: React.FC = () => {
 
   const activeFilterChips = useMemo(() => {
     const chips: { key: keyof SearchFilters; label: string }[] = [];
-    if (filters.category) chips.push({ key: 'category', label: CATEGORY_MAP[filters.category] || filters.category });
-    if (filters.size) chips.push({ key: 'size', label: filters.size });
-    if (filters.color) chips.push({ key: 'color', label: filters.color });
-    if (filters.minPrice !== undefined) chips.push({ key: 'minPrice', label: `Min $${filters.minPrice}` });
-    if (filters.maxPrice !== undefined) chips.push({ key: 'maxPrice', label: `Max $${filters.maxPrice}` });
-    if (filters.sort) chips.push({ key: 'sort', label: SORT_LABELS[filters.sort] || filters.sort });
+    if (filters.category)
+      chips.push({
+        key: "category",
+        label: CATEGORY_MAP[filters.category] || filters.category,
+      });
+    if (filters.size) chips.push({ key: "size", label: filters.size });
+    if (filters.color) chips.push({ key: "color", label: filters.color });
+    if (filters.minPrice !== undefined)
+      chips.push({ key: "minPrice", label: `Min $${filters.minPrice}` });
+    if (filters.maxPrice !== undefined)
+      chips.push({ key: "maxPrice", label: `Max $${filters.maxPrice}` });
+    if (filters.sort)
+      chips.push({
+        key: "sort",
+        label: SORT_LABELS[filters.sort] || filters.sort,
+      });
     return chips;
   }, [filters]);
 
@@ -206,7 +225,7 @@ const CatalogPage: React.FC = () => {
             <motion.div
               className={styles.activeFilters}
               initial={{ height: 0, opacity: 0 }}
-              animate={{ height: 'auto', opacity: 1 }}
+              animate={{ height: "auto", opacity: 1 }}
               exit={{ height: 0, opacity: 0 }}
               transition={{ duration: 0.2 }}
             >
@@ -242,7 +261,16 @@ const CatalogPage: React.FC = () => {
         ) : visibleProducts.length === 0 ? (
           <EmptyState
             icon={
-              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+              <svg
+                width="28"
+                height="28"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="1.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
                 <circle cx="11" cy="11" r="8" />
                 <line x1="21" y1="21" x2="16.65" y2="16.65" />
                 <line x1="8" y1="11" x2="14" y2="11" />
@@ -260,7 +288,7 @@ const CatalogPage: React.FC = () => {
           <>
             <div className={styles.resultCount}>
               <span className={styles.countNumber}>{allProducts.length}</span>
-              {allProducts.length === 1 ? ' product' : ' products'}
+              {allProducts.length === 1 ? " product" : " products"}
             </div>
 
             <motion.div

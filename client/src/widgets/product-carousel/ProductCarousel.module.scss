@@ -1,4 +1,4 @@
-@use '@styles/tokens' as *;
+@use "@styles/tokens" as *;
 
 .section {
   display: flex;
@@ -32,21 +32,43 @@
   }
 }
 
-.scroll {
-  display: flex;
-  gap: $space-3;
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
-  -webkit-overflow-scrolling: touch;
+.wrapper {
+  position: relative;
   padding: 0 $space-4;
-  scrollbar-width: none;
+}
 
-  &::-webkit-scrollbar {
-    display: none;
+.swiper {
+  overflow: visible !important;
+  padding: 0 4px;
+
+  :global {
+    .swiper-button-next,
+    .swiper-button-prev {
+      color: $color-text-primary;
+      background: $color-bg-primary;
+      width: 32px;
+      height: 32px;
+      border-radius: $radius-full;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+      transition: all $transition-fast;
+
+      &::after {
+        font-size: 14px;
+        font-weight: bold;
+      }
+
+      &:hover {
+        background: $color-bg-secondary;
+      }
+    }
+
+    .swiper-button-disabled {
+      opacity: 0;
+      pointer-events: none;
+    }
   }
 }
 
-.item {
-  flex: 0 0 160px;
-  scroll-snap-align: start;
+.slide {
+  width: 300px;
 }

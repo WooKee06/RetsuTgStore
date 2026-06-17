@@ -1,10 +1,13 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import { motion } from 'framer-motion';
-import { ProductCard } from '@widgets/product-card';
-import { staggerContainer, staggerItem } from '@shared/lib/motion';
-import type { Product } from '@shared/types';
-import styles from './ProductCarousel.module.scss';
+import React from "react";
+import { Link } from "react-router-dom";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation, FreeMode } from "swiper/modules";
+import { ProductCard } from "@widgets/product-card";
+import type { Product } from "@shared/types";
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/free-mode";
+import styles from "./ProductCarousel.module.scss";
 
 interface ProductCarouselProps {
   title: string;
@@ -22,7 +25,7 @@ export const ProductCarousel: React.FC<ProductCarouselProps> = ({
   if (!products.length) return null;
 
   return (
-    <section className={`${styles.section} ${className || ''}`}>
+    <section className={`${styles.section} ${className || ""}`}>
       <div className={styles.header}>
         <h2 className={styles.title}>{title}</h2>
         {viewAllLink && (
@@ -31,18 +34,21 @@ export const ProductCarousel: React.FC<ProductCarouselProps> = ({
           </Link>
         )}
       </div>
-      <motion.div
-        className={styles.scroll}
-        variants={staggerContainer}
-        initial="hidden"
-        animate="visible"
-      >
-        {products.map((product) => (
-          <motion.div key={product.id} className={styles.item} variants={staggerItem}>
-            <ProductCard product={product} />
-          </motion.div>
-        ))}
-      </motion.div>
+      <div className={styles.wrapper}>
+        <Swiper
+          modules={[Navigation, FreeMode]}
+          freeMode={{ enabled: true, momentum: true, momentumRatio: 0.5 }}
+          slidesPerView="auto"
+          spaceBetween={12}
+          className={styles.swiper}
+        >
+          {products.map((product) => (
+            <SwiperSlide key={product.id} className={styles.slide}>
+              <ProductCard product={product} />
+            </SwiperSlide>
+          ))}
+        </Swiper>
+      </div>
     </section>
   );
 };

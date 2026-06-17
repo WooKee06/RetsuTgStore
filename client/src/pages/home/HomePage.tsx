@@ -1,25 +1,20 @@
-import React, { useCallback } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { motion } from 'framer-motion';
-import { Header } from '@widgets/header';
-import { BottomNav } from '@widgets/bottom-nav';
-import { HeroBanner } from '@widgets/hero-banner';
-import { CategoryList } from '@widgets/category-list';
-import { ProductCarousel } from '@widgets/product-carousel';
-import { BrandSection } from '@widgets/brand-section';
-import { Footer } from '@widgets/footer';
-import { Skeleton } from '@shared/ui/skeleton';
-import { staggerContainer, staggerItem } from '@shared/lib/motion';
+import React, { useCallback } from "react";
+import { useNavigate } from "react-router-dom";
+import { motion } from "framer-motion";
+import { Header } from "@widgets/header";
+import { BottomNav } from "@widgets/bottom-nav";
+import { ProductCarousel } from "@widgets/product-carousel";
+import { Footer } from "@widgets/footer";
+import { Skeleton } from "@shared/ui/skeleton";
+import { staggerContainer, staggerItem } from "@shared/lib/motion";
 import {
-  useBanners,
-  useCategories,
   useNewProducts,
   useFeaturedProducts,
   useSaleProducts,
   useTrendingProducts,
   useBrands,
-} from '@api/hooks';
-import styles from './HomePage.module.scss';
+} from "@api/hooks";
+import styles from "./HomePage.module.scss";
 
 function BannerSkeleton() {
   return (
@@ -80,24 +75,16 @@ function BrandSkeleton() {
 const HomePage: React.FC = () => {
   const navigate = useNavigate();
 
-  const { data: banners = [], isLoading: bannersLoading } = useBanners();
-  const { data: categories = [], isLoading: categoriesLoading } = useCategories();
   const { data: newProducts = [], isLoading: newLoading } = useNewProducts();
-  const { data: featuredProducts = [], isLoading: featuredLoading } = useFeaturedProducts();
+  const { data: featuredProducts = [], isLoading: featuredLoading } =
+    useFeaturedProducts();
   const { data: saleProducts = [], isLoading: saleLoading } = useSaleProducts();
-  const { data: trendingProducts = [], isLoading: trendingLoading } = useTrendingProducts();
-  const { data: brands = [], isLoading: brandsLoading } = useBrands();
+  const { data: trendingProducts = [], isLoading: trendingLoading } =
+    useTrendingProducts();
 
   const handleSearchFocus = useCallback(() => {
-    navigate('/search');
+    navigate("/search");
   }, [navigate]);
-
-  const handleCategorySelect = useCallback(
-    (categoryId: string) => {
-      navigate(`/catalog?category=${categoryId}`);
-    },
-    [navigate],
-  );
 
   return (
     <div className={styles.page}>
@@ -119,7 +106,9 @@ const HomePage: React.FC = () => {
               <circle cx="11" cy="11" r="8" />
               <line x1="21" y1="21" x2="16.65" y2="16.65" />
             </svg>
-            <span className={styles.searchPlaceholder}>Search premium brands...</span>
+            <span className={styles.searchPlaceholder}>
+              Search premium brands...
+            </span>
           </div>
         </div>
 
@@ -129,18 +118,6 @@ const HomePage: React.FC = () => {
           animate="visible"
           className={styles.sections}
         >
-          <motion.section variants={staggerItem}>
-            {bannersLoading ? <BannerSkeleton /> : <HeroBanner banners={banners} />}
-          </motion.section>
-
-          <motion.section variants={staggerItem}>
-            {categoriesLoading ? (
-              <CategorySkeleton />
-            ) : (
-              <CategoryList categories={categories} onSelect={handleCategorySelect} />
-            )}
-          </motion.section>
-
           <motion.section variants={staggerItem}>
             {newLoading ? (
               <CarouselSkeleton />
@@ -187,10 +164,6 @@ const HomePage: React.FC = () => {
                 viewAllLink="/catalog?sort=rating"
               />
             )}
-          </motion.section>
-
-          <motion.section variants={staggerItem}>
-            {brandsLoading ? <BrandSkeleton /> : <BrandSection brands={brands} />}
           </motion.section>
         </motion.div>
 

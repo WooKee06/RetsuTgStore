@@ -1,12 +1,15 @@
-@use '@styles/tokens' as *;
+@use "@styles/tokens" as *;
 
 .header {
   position: sticky;
-  top: 0;
+  top: 10px;
   z-index: $z-sticky;
+  margin: 0px auto;
+  width: 95vw;
   background: rgba(10, 10, 10, 0.85);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
+  border-radius: 20px;
   border-bottom: 1px solid $color-border;
 }
 
@@ -14,7 +17,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: $navbar-height;
+  height: 70px;
   padding: 0 $space-4;
   max-width: $max-width;
   margin: 0 auto;

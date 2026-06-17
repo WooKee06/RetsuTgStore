@@ -1,12 +1,14 @@
-@use '@styles/tokens' as *;
+@use "@styles/tokens" as *;
 
 .nav {
   position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
+  bottom: 10px;
+  left: 10px;
+  right: 10px;
   z-index: $z-sticky;
-  background: $color-bg-secondary;
+  background: rgba(10, 10, 10, 0.85);
+  backdrop-filter: blur(20px);
+  border-radius: 30px;
   border-top: 1px solid $color-border;
   padding-bottom: env(safe-area-inset-bottom, 0);
 }
@@ -40,13 +42,13 @@
 
 .iconWrap {
   position: relative;
-  width: 24px;
-  height: 24px;
+  width: 29px;
+  height: 29px;
 }
 
 .icon {
-  width: 24px;
-  height: 24px;
+  width: 29px;
+  height: 29px;
   fill: none;
   stroke: $color-text-tertiary;
   stroke-width: 1.8;

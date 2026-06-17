@@ -1,4 +1,4 @@
-@use '@styles/tokens' as *;
+@use "@styles/tokens" as *;
 
 .page {
   display: flex;
@@ -10,7 +10,9 @@
 
 .content {
   flex: 1;
-  padding-bottom: calc($bottom-nav-height + env(safe-area-inset-bottom, 0px) + $space-4);
+  padding-bottom: calc(
+    $bottom-nav-height + env(safe-area-inset-bottom, 0px) + $space-4
+  );
   overflow-x: hidden;
 }
 
@@ -41,7 +43,9 @@
   border: 1px solid $color-border;
   border-radius: $radius-md;
   cursor: pointer;
-  transition: background $transition-fast, border-color $transition-fast;
+  transition:
+    background $transition-fast,
+    border-color $transition-fast;
 
   &:active {
     background: $color-bg-tertiary;
@@ -132,6 +136,7 @@
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: $space-3;
+  width: -webkit-fill-available;
   padding: 0 $space-4;
 }
 

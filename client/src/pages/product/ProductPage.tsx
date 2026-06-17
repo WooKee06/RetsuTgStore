@@ -239,16 +239,28 @@ const ProductPage: React.FC = observer(() => {
               onClick={handleAddToCart}
               disabled={!canAddToCart || addedToCart}
               loading={addedToCart}
+              icon={
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z" />
+                  <line x1="3" y1="6" x2="21" y2="6" />
+                  <path d="M16 10a4 4 0 0 1-8 0" />
+                </svg>
+              }
             >
-              {addedToCart ? 'Added' : 'Add to Cart'}
+              {addedToCart ? 'Added' : ''}
             </Button>
             <Button
               variant="secondary"
               fullWidth
               onClick={handleBuyNow}
               disabled={!canAddToCart}
+              icon={
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
+                </svg>
+              }
             >
-              Buy Now
+              {''}
             </Button>
           </div>
         </div>

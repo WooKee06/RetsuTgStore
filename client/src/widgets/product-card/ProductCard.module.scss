@@ -1,4 +1,4 @@
-@use '@styles/tokens' as *;
+@use "@styles/tokens" as *;
 
 .card {
   position: relative;
@@ -17,6 +17,7 @@
 .grid {
   display: flex;
   flex-direction: column;
+  height: 100%;
 }
 
 .imageWrap {
@@ -40,8 +41,12 @@
 }
 
 @keyframes shimmer {
-  0% { background-position: 200% 0; }
-  100% { background-position: -200% 0; }
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
 }
 
 .image {
@@ -49,7 +54,9 @@
   height: 100%;
   object-fit: cover;
   opacity: 0;
-  transition: opacity $transition-base, transform 600ms cubic-bezier(0.25, 0.1, 0.25, 1);
+  transition:
+    opacity $transition-base,
+    transform 600ms cubic-bezier(0.25, 0.1, 0.25, 1);
 
   &Loaded {
     opacity: 1;
@@ -83,7 +90,9 @@
   cursor: pointer;
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
-  transition: background $transition-fast, transform $transition-fast;
+  transition:
+    background $transition-fast,
+    transform $transition-fast;
 
   &:active {
     transform: scale(0.9);
@@ -98,7 +107,9 @@
   stroke-width: 2;
   stroke-linecap: round;
   stroke-linejoin: round;
-  transition: fill $transition-fast, stroke $transition-fast;
+  transition:
+    fill $transition-fast,
+    stroke $transition-fast;
 }
 
 .heartFilled {
