@@ -16,7 +16,7 @@ interface SearchInputProps {
 export const SearchInput: React.FC<SearchInputProps> = ({
   value,
   onChange,
-  placeholder = 'Search...',
+  placeholder = 'Поиск...',
   onFocus,
   onBlur,
   onClear,

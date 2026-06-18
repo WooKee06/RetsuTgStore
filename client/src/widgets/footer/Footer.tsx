@@ -7,10 +7,10 @@ interface FooterProps {
 }
 
 const LINKS = [
-  { label: 'About', href: '#about' },
-  { label: 'Contact', href: '#contact' },
-  { label: 'Terms', href: '#terms' },
-  { label: 'Privacy', href: '#privacy' },
+  { label: 'О нас', href: '#about' },
+  { label: 'Контакты', href: '#contact' },
+  { label: 'Условия', href: '#terms' },
+  { label: 'Конфиденциальность', href: '#privacy' },
 ];
 
 export const Footer: React.FC<FooterProps> = ({ className }) => {
@@ -19,7 +19,7 @@ export const Footer: React.FC<FooterProps> = ({ className }) => {
       <div className={styles.content}>
         <div className={styles.brand}>
           <h2 className={styles.logo}>RETSU</h2>
-          <p className={styles.tagline}>Premium Fashion Since 2024</p>
+          <p className={styles.tagline}>Премиальная мода с 2024 года</p>
         </div>
 
         <nav className={styles.links}>
@@ -54,7 +54,7 @@ export const Footer: React.FC<FooterProps> = ({ className }) => {
         <div className={styles.divider} />
 
         <p className={styles.copyright}>
-          &copy; 2024 RETSU. All rights reserved.
+          &copy; 2024 RETSU. Все права защищены.
         </p>
       </div>
     </footer>

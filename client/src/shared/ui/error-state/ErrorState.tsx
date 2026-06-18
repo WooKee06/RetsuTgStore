@@ -32,7 +32,7 @@ export const ErrorState: React.FC<ErrorStateProps> = ({
       {text && <p className={styles.message}>{text}</p>}
       {onRetry && (
         <Button variant="secondary" size="sm" onClick={onRetry}>
-          Try Again
+          Попробовать снова
         </Button>
       )}
     </div>

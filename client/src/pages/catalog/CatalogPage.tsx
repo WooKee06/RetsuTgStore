@@ -100,20 +100,20 @@ function paramsFromFilters(filters: SearchFilters): Record<string, string> {
 }
 
 const CATEGORY_MAP: Record<string, string> = {
-  "cat-1": "Men",
-  "cat-2": "Women",
-  "cat-3": "Shoes",
-  "cat-4": "Accessories",
-  "cat-5": "Outerwear",
-  "cat-6": "Sportswear",
+  "cat-1": "Мужское",
+  "cat-2": "Женское",
+  "cat-3": "Обувь",
+  "cat-4": "Аксессуары",
+  "cat-5": "Верхняя одежда",
+  "cat-6": "Спортивное",
 };
 
 const SORT_LABELS: Record<string, string> = {
-  popular: "Popular",
-  newest: "Newest",
-  "price-asc": "Price Low-High",
-  "price-desc": "Price High-Low",
-  rating: "Rating",
+  popular: "Популярные",
+  newest: "Новинки",
+  "price-asc": "Цена: по возрастанию",
+  "price-desc": "Цена: по убыванию",
+  rating: "Рейтинг",
 };
 
 const CatalogPage: React.FC = () => {
@@ -174,9 +174,9 @@ const CatalogPage: React.FC = () => {
     if (filters.size) chips.push({ key: "size", label: filters.size });
     if (filters.color) chips.push({ key: "color", label: filters.color });
     if (filters.minPrice !== undefined)
-      chips.push({ key: "minPrice", label: `Min $${filters.minPrice}` });
+      chips.push({ key: "minPrice", label: `От $${filters.minPrice}` });
     if (filters.maxPrice !== undefined)
-      chips.push({ key: "maxPrice", label: `Max $${filters.maxPrice}` });
+      chips.push({ key: "maxPrice", label: `До $${filters.maxPrice}` });
     if (filters.sort)
       chips.push({
         key: "sort",
@@ -190,7 +190,7 @@ const CatalogPage: React.FC = () => {
       <Header />
       <main className={styles.content}>
         <div className={styles.topBar}>
-          <h1 className={styles.title}>Catalog</h1>
+          <h1 className={styles.title}>Каталог</h1>
           <button
             className={styles.filterBtn}
             onClick={() => setIsFiltersOpen(true)}
@@ -216,7 +216,7 @@ const CatalogPage: React.FC = () => {
               <line x1="9" y1="8" x2="15" y2="8" />
               <line x1="17" y1="16" x2="23" y2="16" />
             </svg>
-            Filters
+            Фильтры
           </button>
         </div>
 
@@ -248,7 +248,7 @@ const CatalogPage: React.FC = () => {
                     animate={{ opacity: 1 }}
                     exit={{ opacity: 0 }}
                   >
-                    Clear All
+                    Очистить все
                   </motion.button>
                 )}
               </div>
@@ -276,21 +276,16 @@ const CatalogPage: React.FC = () => {
                 <line x1="8" y1="11" x2="14" y2="11" />
               </svg>
             }
-            title="No products found"
-            description="Try adjusting your filters or search for something else"
+            title="Товары не найдены"
+            description="Попробуйте изменить фильтры или поискать что-то другое"
             action={
               <Button variant="gold" onClick={handleClearAll}>
-                Clear Filters
+                Сбросить фильтры
               </Button>
             }
           />
         ) : (
           <>
-            <div className={styles.resultCount}>
-              <span className={styles.countNumber}>{allProducts.length}</span>
-              {allProducts.length === 1 ? " product" : " products"}
-            </div>
-
             <motion.div
               className={styles.grid}
               variants={staggerContainer}
@@ -307,7 +302,7 @@ const CatalogPage: React.FC = () => {
             {hasMore && (
               <div className={styles.loadMore}>
                 <Button variant="ghost" onClick={handleLoadMore} fullWidth>
-                  Load More
+                  Загрузить ещё
                 </Button>
               </div>
             )}

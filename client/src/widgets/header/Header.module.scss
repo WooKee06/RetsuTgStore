@@ -3,9 +3,10 @@
 .header {
   position: sticky;
   top: 10px;
+  right: 10px;
   z-index: $z-sticky;
-  margin: 0px auto;
-  width: 95vw;
+  margin-left: auto;
+  width: max-content;
   background: rgba(10, 10, 10, 0.85);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
@@ -17,8 +18,8 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 70px;
-  padding: 0 $space-4;
+  height: 50px;
+  padding: 0 $space-2;
   max-width: $max-width;
   margin: 0 auto;
 }

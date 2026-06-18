@@ -101,7 +101,7 @@ const HomePage: React.FC = () => {
               <CarouselSkeleton />
             ) : (
               <ProductCarousel
-                title="New Collection"
+                title="Новая коллекция"
                 products={newProducts}
                 viewAllLink="/catalog?sort=newest"
               />
@@ -113,7 +113,7 @@ const HomePage: React.FC = () => {
               <CarouselSkeleton />
             ) : (
               <ProductCarousel
-                title="Popular"
+                title="Популярное"
                 products={featuredProducts}
                 viewAllLink="/catalog?sort=popular"
               />
@@ -125,7 +125,7 @@ const HomePage: React.FC = () => {
               <CarouselSkeleton />
             ) : (
               <ProductCarousel
-                title="Sale"
+                title="Распродажа"
                 products={saleProducts}
                 viewAllLink="/catalog?filter=sale"
               />
@@ -137,7 +137,7 @@ const HomePage: React.FC = () => {
               <CarouselSkeleton />
             ) : (
               <ProductCarousel
-                title="Trending"
+                title="В тренде"
                 products={trendingProducts}
                 viewAllLink="/catalog?sort=rating"
               />

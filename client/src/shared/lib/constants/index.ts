@@ -42,9 +42,9 @@ export const PROMO_IMAGES = {
 export const PAGE_SIZE = 20;
 
 export const SORT_OPTIONS = [
-  { value: 'popular', label: 'Popular' },
-  { value: 'newest', label: 'Newest' },
-  { value: 'price-asc', label: 'Price: Low to High' },
-  { value: 'price-desc', label: 'Price: High to Low' },
-  { value: 'rating', label: 'Top Rated' },
+  { value: 'popular', label: 'Популярные' },
+  { value: 'newest', label: 'Новинки' },
+  { value: 'price-asc', label: 'Цена: по возрастанию' },
+  { value: 'price-desc', label: 'Цена: по убыванию' },
+  { value: 'rating', label: 'Рейтинг' },
 ] as const;

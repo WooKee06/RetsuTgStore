@@ -13,8 +13,8 @@ const RECENT_SEARCHES_KEY = 'retsu_recent_searches';
 const MAX_RECENT = 10;
 
 const POPULAR_TAGS = [
-  'Sneakers', 'Jackets', 'Watches', 'Sunglasses',
-  'Backpacks', 'Hoodies', 'Dresses', 'Rings',
+  'Кроссовки', 'Куртки', 'Часы', 'Солнцезащитные очки',
+  'Рюкзаки', 'Худи', 'Платья', 'Кольца',
 ];
 
 function loadRecentSearches(): string[] {
@@ -99,7 +99,7 @@ export const SearchPage: React.FC = () => {
 
   const resultCountText = useMemo(() => {
     if (!query.trim()) return '';
-    return `${results.length} result${results.length !== 1 ? 's' : ''} for "${query}"`;
+    return `${results.length} результат${results.length !== 1 ? (results.length < 5 ? 'а' : 'ов') : ''} для "${query}"`;
   }, [results.length, query]);
 
   return (
@@ -116,11 +116,11 @@ export const SearchPage: React.FC = () => {
           onChange={handleQueryChange}
           autoFocus
           onClear={clearQuery}
-          placeholder="Search for products..."
+          placeholder="Поиск товаров..."
           className={styles.searchInput}
         />
         <button className={styles.cancelBtn} onClick={goBack}>
-          Cancel
+          Отмена
         </button>
       </header>
 
@@ -134,7 +134,7 @@ export const SearchPage: React.FC = () => {
               exit={{ opacity: 0 }}
             >
               <div className={styles.popular}>
-                <h3 className={styles.sectionTitle}>Popular Searches</h3>
+                <h3 className={styles.sectionTitle}>Популярные запросы</h3>
                 <div className={styles.tags}>
                   {POPULAR_TAGS.map((tag) => (
                     <button
@@ -150,7 +150,7 @@ export const SearchPage: React.FC = () => {
 
               {recentSearches.length > 0 && (
                 <div className={styles.recent}>
-                  <h3 className={styles.sectionTitle}>Recent Searches</h3>
+                  <h3 className={styles.sectionTitle}>Недавние запросы</h3>
                   {recentSearches.map((search) => (
                     <button
                       key={search}
@@ -202,8 +202,8 @@ export const SearchPage: React.FC = () => {
               ) : (
                 <EmptyState
                   icon={<SearchIcon />}
-                  title="No results found"
-                  description="Try different keywords"
+                  title="Ничего не найдено"
+                  description="Попробуйте другие ключевые слова"
                 />
               )}
             </motion.div>

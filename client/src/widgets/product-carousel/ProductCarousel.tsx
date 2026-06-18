@@ -30,7 +30,7 @@ export const ProductCarousel: React.FC<ProductCarouselProps> = ({
         <h2 className={styles.title}>{title}</h2>
         {viewAllLink && (
           <Link to={viewAllLink} className={styles.viewAll}>
-            View All
+            Смотреть все
           </Link>
         )}
       </div>

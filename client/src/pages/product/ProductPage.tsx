@@ -133,8 +133,8 @@ const ProductPage: React.FC = observer(() => {
         </header>
         <main className={styles.content}>
           <ErrorState
-            title="Product not found"
-            description="The product you're looking for doesn't exist or has been removed."
+            title="Товар не найден"
+            description="Товар, который вы ищете, не существует или был удалён."
           />
         </main>
       </div>
@@ -165,7 +165,7 @@ const ProductPage: React.FC = observer(() => {
             onClick={handleToggleFavorite}
             type="button"
             aria-label={
-              isFavorite ? "Remove from favorites" : "Add to favorites"
+              isFavorite ? "Убрать из избранного" : "Добавить в избранное"
             }
           >
             <svg
@@ -217,7 +217,7 @@ const ProductPage: React.FC = observer(() => {
           {product.colors.length > 0 && (
             <motion.div className={styles.section} variants={staggerItem}>
               <h3 className={styles.sectionTitle}>
-                Color
+                Цвет
                 {effectiveColor && (
                   <span className={styles.sectionValue}>
                     {effectiveColor.name}
@@ -232,7 +232,7 @@ const ProductPage: React.FC = observer(() => {
                     style={{ backgroundColor: color.hex }}
                     onClick={() => handleColorSelect(color)}
                     type="button"
-                    aria-label={`Select color: ${color.name}`}
+                    aria-label={`Выбрать цвет: ${color.name}`}
                   />
                 ))}
               </div>
@@ -241,7 +241,7 @@ const ProductPage: React.FC = observer(() => {
 
           {product.sizes.length > 0 && (
             <motion.div className={styles.section} variants={staggerItem}>
-              <h3 className={styles.sectionTitle}>Size</h3>
+              <h3 className={styles.sectionTitle}>Размер</h3>
               <div className={styles.sizeOptions}>
                 {product.sizes.map((size) => (
                   <button
@@ -260,7 +260,7 @@ const ProductPage: React.FC = observer(() => {
 
         {similarProducts.length > 0 && (
           <ProductCarousel
-            title="You May Also Like"
+            title="Вам может понравиться"
             products={similarProducts}
           />
         )}
@@ -271,7 +271,7 @@ const ProductPage: React.FC = observer(() => {
       <div className={styles.bottomBar}>
         <div className={styles.bottomBarInner}>
           <div className={styles.bottomPrice}>
-            <span className={styles.bottomPriceLabel}>Total</span>
+            <span className={styles.bottomPriceLabel}>Итого</span>
             <span className={styles.bottomPriceValue}>
               {formatPrice(product.price)}
             </span>
@@ -300,7 +300,7 @@ const ProductPage: React.FC = observer(() => {
                 </svg>
               }
             >
-              {addedToCart ? "Added" : ""}
+              {addedToCart ? "Добавлено" : ""}
             </Button>
             <Button
               variant="secondary"

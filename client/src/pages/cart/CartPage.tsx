@@ -57,7 +57,7 @@ const CartPage: React.FC = observer(() => {
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
           >
-            Shopping Bag
+            Корзина
           </motion.h1>
           {totalItems > 0 && (
             <motion.span
@@ -65,7 +65,7 @@ const CartPage: React.FC = observer(() => {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
             >
-              {totalItems} {totalItems === 1 ? 'item' : 'items'}
+              {totalItems} {totalItems === 1 ? 'товар' : 'товаров'}
             </motion.span>
           )}
         </div>
@@ -79,11 +79,11 @@ const CartPage: React.FC = observer(() => {
           >
             <EmptyState
               icon={bagIcon}
-              title="Your bag is empty"
-              description="Looks like you haven't added anything yet. Start exploring our collection."
+              title="Ваша корзина пуста"
+              description="Похоже, вы ещё ничего не добавили. Начните изучать нашу коллекцию."
               action={
                 <Button variant="gold" onClick={handleBrowse}>
-                  Browse Collection
+                  Смотреть коллекцию
                 </Button>
               }
             />
@@ -106,7 +106,7 @@ const CartPage: React.FC = observer(() => {
             <motion.div className={styles.summary} variants={staggerItem}>
               <div className={styles.promoCode}>
                 <Input
-                  placeholder="Promo code"
+                  placeholder="Промокод"
                   value={promoCode}
                   onChange={(e) => setPromoCode(e.target.value)}
                   className={styles.promoInput}
@@ -117,7 +117,7 @@ const CartPage: React.FC = observer(() => {
                   onClick={handleApplyPromo}
                   disabled={!promoCode.trim() || promoApplied}
                 >
-                  {promoApplied ? 'Applied' : 'Apply'}
+                  {promoApplied ? 'Применён' : 'Применить'}
                 </Button>
               </div>
 
@@ -130,28 +130,28 @@ const CartPage: React.FC = observer(() => {
                   <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
                     <polyline points="20 6 9 17 4 12" />
                   </svg>
-                  10% discount applied
+                  Скидка 10% применена
                 </motion.div>
               )}
 
               <div className={styles.totalLines}>
                 <div className={styles.totalLine}>
-                  <span className={styles.totalLabel}>Subtotal</span>
+                  <span className={styles.totalLabel}>Подытог</span>
                   <span className={styles.totalValue}>{formatPrice(subtotal)}</span>
                 </div>
                 {discount > 0 && (
                   <div className={`${styles.totalLine} ${styles.discountLine}`}>
-                    <span className={styles.discountLabel}>Discount (10%)</span>
+                    <span className={styles.discountLabel}>Скидка (10%)</span>
                     <span className={styles.discountValue}>-{formatPrice(discount)}</span>
                   </div>
                 )}
                 <div className={styles.totalLine}>
-                  <span className={styles.totalLabel}>Shipping</span>
-                  <span className={styles.freeShipping}>Free</span>
+                  <span className={styles.totalLabel}>Доставка</span>
+                  <span className={styles.freeShipping}>Бесплатно</span>
                 </div>
                 <div className={styles.divider} />
                 <div className={`${styles.totalLine} ${styles.grandTotal}`}>
-                  <span className={styles.grandTotalLabel}>Total</span>
+                  <span className={styles.grandTotalLabel}>Итого</span>
                   <span className={styles.grandTotalValue}>{formatPrice(total)}</span>
                 </div>
               </div>
@@ -162,7 +162,7 @@ const CartPage: React.FC = observer(() => {
                 size="lg"
                 onClick={handleCheckout}
               >
-                Proceed to Checkout
+                Перейти к оформлению
               </Button>
             </motion.div>
           </motion.div>

@@ -36,7 +36,7 @@ const FavoritesPage: React.FC = observer(() => {
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
           >
-            Favorites
+            Избранное
           </motion.h1>
           {favoriteCount > 0 && (
             <motion.span
@@ -44,7 +44,7 @@ const FavoritesPage: React.FC = observer(() => {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
             >
-              {favoriteCount} {favoriteCount === 1 ? 'item' : 'items'}
+              {favoriteCount} {favoriteCount === 1 ? 'товар' : 'товаров'}
             </motion.span>
           )}
         </div>
@@ -58,11 +58,11 @@ const FavoritesPage: React.FC = observer(() => {
           >
             <EmptyState
               icon={heartIcon}
-              title="No favorites yet"
-              description="Save items you love by tapping the heart icon on any product."
+              title="Пока нет избранных"
+              description="Сохраняйте понравившиеся товары, нажимая на сердечко на любом товаре."
               action={
                 <Button variant="gold" onClick={handleBrowse}>
-                  Browse Collection
+                  Смотреть коллекцию
                 </Button>
               }
             />

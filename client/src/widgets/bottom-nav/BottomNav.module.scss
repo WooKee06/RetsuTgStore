@@ -50,15 +50,6 @@
   position: relative;
 }
 
-.indicator {
-  position: absolute;
-  top: 5px;
-  bottom: 5px;
-  background: #ffffff12;
-  border-radius: 46px;
-  z-index: 0;
-}
-
 .link {
   flex: 1;
   display: flex;
@@ -69,6 +60,12 @@
   -webkit-tap-highlight-color: transparent;
   position: relative;
   z-index: 1;
+  opacity: 0.5;
+  transition: opacity 0.2s ease;
+}
+
+.link.active {
+  opacity: 1;
 }
 
 .linkInner {

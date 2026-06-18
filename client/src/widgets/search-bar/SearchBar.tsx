@@ -12,7 +12,7 @@ interface SearchBarProps {
   onClose: () => void;
 }
 
-const POPULAR_TAGS = ['Jackets', 'Sneakers', 'Nike', 'Summer', 'Dresses', 'Sunglasses'];
+const POPULAR_TAGS = ['Куртки', 'Кроссовки', 'Nike', 'Лето', 'Платья', 'Очки'];
 const RECENT_KEY = 'retsu_recent_searches';
 
 function loadRecentSearches(): string[] {
@@ -83,13 +83,13 @@ export const SearchBar: React.FC<SearchBarProps> = ({ onClose }) => {
         <SearchInput
           value={query}
           onChange={handleSearch}
-          placeholder="Search products..."
+          placeholder="Поиск товаров..."
           autoFocus
           onClear={() => setQuery('')}
           className={styles.searchInput}
         />
         <button className={styles.cancel} onClick={onClose} type="button">
-          Cancel
+          Отмена
         </button>
       </div>
 
@@ -125,7 +125,7 @@ export const SearchBar: React.FC<SearchBarProps> = ({ onClose }) => {
                 <line x1="21" y1="21" x2="16.65" y2="16.65" />
                 <line x1="8" y1="11" x2="14" y2="11" />
               </svg>
-              <p className={styles.emptyText}>No results for "{query}"</p>
+              <p className={styles.emptyText}>Нет результатов для "{query}"</p>
             </motion.div>
           ) : (
             <motion.div
@@ -137,9 +137,9 @@ export const SearchBar: React.FC<SearchBarProps> = ({ onClose }) => {
               {recentSearches.length > 0 && (
                 <section className={styles.section}>
                   <div className={styles.sectionHeader}>
-                    <h3 className={styles.sectionTitle}>Recent Searches</h3>
+                    <h3 className={styles.sectionTitle}>Недавние запросы</h3>
                     <button className={styles.clearBtn} onClick={clearRecent} type="button">
-                      Clear
+                      Очистить
                     </button>
                   </div>
                   <div className={styles.tags}>
@@ -162,7 +162,7 @@ export const SearchBar: React.FC<SearchBarProps> = ({ onClose }) => {
               )}
 
               <section className={styles.section}>
-                <h3 className={styles.sectionTitle}>Popular Searches</h3>
+                <h3 className={styles.sectionTitle}>Популярные запросы</h3>
                 <div className={styles.tags}>
                   {POPULAR_TAGS.map((tag) => (
                     <button

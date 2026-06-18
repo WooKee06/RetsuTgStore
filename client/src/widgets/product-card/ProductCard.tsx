@@ -87,7 +87,7 @@ export const ProductCard: React.FC<ProductCardProps> = observer(
             className={cn(styles.heartBtn, styles.listHeart)}
             onClick={handleFavoriteClick}
             aria-label={
-              isFavorite ? "Remove from favorites" : "Add to favorites"
+              isFavorite ? "Убрать из избранного" : "Добавить в избранное"
             }
           >
             <svg
@@ -123,7 +123,7 @@ export const ProductCard: React.FC<ProductCardProps> = observer(
             className={styles.heartBtn}
             onClick={handleFavoriteClick}
             aria-label={
-              isFavorite ? "Remove from favorites" : "Add to favorites"
+              isFavorite ? "Убрать из избранного" : "Добавить в избранное"
             }
           >
             <svg

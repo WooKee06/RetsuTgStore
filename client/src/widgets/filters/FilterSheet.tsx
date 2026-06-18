@@ -14,35 +14,35 @@ interface FilterSheetProps {
 }
 
 const CATEGORIES = [
-  { id: 'cat-1', name: 'Men' },
-  { id: 'cat-2', name: 'Women' },
-  { id: 'cat-3', name: 'Shoes' },
-  { id: 'cat-4', name: 'Accessories' },
-  { id: 'cat-5', name: 'Outerwear' },
-  { id: 'cat-6', name: 'Sportswear' },
+  { id: 'cat-1', name: 'Мужское' },
+  { id: 'cat-2', name: 'Женское' },
+  { id: 'cat-3', name: 'Обувь' },
+  { id: 'cat-4', name: 'Аксессуары' },
+  { id: 'cat-5', name: 'Верхняя одежда' },
+  { id: 'cat-6', name: 'Спортивное' },
 ];
 
 const SIZES = ['XS', 'S', 'M', 'L', 'XL', 'XXL'];
 
 const SORT_OPTIONS: { value: SortOption; label: string }[] = [
-  { value: 'popular', label: 'Popular' },
-  { value: 'newest', label: 'Newest' },
-  { value: 'price-asc', label: 'Price Low-High' },
-  { value: 'price-desc', label: 'Price High-Low' },
-  { value: 'rating', label: 'Rating' },
+  { value: 'popular', label: 'Популярные' },
+  { value: 'newest', label: 'Новинки' },
+  { value: 'price-asc', label: 'Цена: по возрастанию' },
+  { value: 'price-desc', label: 'Цена: по убыванию' },
+  { value: 'rating', label: 'Рейтинг' },
 ];
 
 const COLOR_SWATCHES = [
-  { name: 'Black', hex: '#0a0a0a' },
-  { name: 'White', hex: '#f5f5f5' },
-  { name: 'Grey', hex: '#6b7280' },
-  { name: 'Navy', hex: '#1e3a5f' },
-  { name: 'Brown', hex: '#5c4033' },
-  { name: 'Red', hex: '#dc2626' },
-  { name: 'Blue', hex: '#3b82f6' },
-  { name: 'Green', hex: '#2d5a27' },
-  { name: 'Beige', hex: '#c2b280' },
-  { name: 'Pink', hex: '#f9a8d4' },
+  { name: 'Чёрный', hex: '#0a0a0a' },
+  { name: 'Белый', hex: '#f5f5f5' },
+  { name: 'Серый', hex: '#6b7280' },
+  { name: 'Тёмно-синий', hex: '#1e3a5f' },
+  { name: 'Коричневый', hex: '#5c4033' },
+  { name: 'Красный', hex: '#dc2626' },
+  { name: 'Синий', hex: '#3b82f6' },
+  { name: 'Зелёный', hex: '#2d5a27' },
+  { name: 'Бежевый', hex: '#c2b280' },
+  { name: 'Розовый', hex: '#f9a8d4' },
 ];
 
 export const FilterSheet: React.FC<FilterSheetProps> = ({
@@ -116,10 +116,10 @@ export const FilterSheet: React.FC<FilterSheetProps> = ({
     localFilters.sort;
 
   return (
-    <Modal isOpen={isOpen} onClose={onClose} title="Filters">
+    <Modal isOpen={isOpen} onClose={onClose} title="Фильтры">
       <div className={styles.content}>
         <section className={styles.section}>
-          <h3 className={styles.sectionTitle}>Category</h3>
+          <h3 className={styles.sectionTitle}>Категория</h3>
           <div className={styles.checkboxList}>
             {CATEGORIES.map((cat) => (
               <Checkbox
@@ -133,10 +133,10 @@ export const FilterSheet: React.FC<FilterSheetProps> = ({
         </section>
 
         <section className={styles.section}>
-          <h3 className={styles.sectionTitle}>Price Range</h3>
+          <h3 className={styles.sectionTitle}>Ценовой диапазон</h3>
           <div className={styles.priceInputs}>
             <div className={styles.priceField}>
-              <span className={styles.priceLabel}>Min</span>
+              <span className={styles.priceLabel}>От</span>
               <input
                 type="number"
                 className={styles.priceInput}
@@ -148,7 +148,7 @@ export const FilterSheet: React.FC<FilterSheetProps> = ({
             </div>
             <span className={styles.priceDash}>—</span>
             <div className={styles.priceField}>
-              <span className={styles.priceLabel}>Max</span>
+              <span className={styles.priceLabel}>До</span>
               <input
                 type="number"
                 className={styles.priceInput}
@@ -162,7 +162,7 @@ export const FilterSheet: React.FC<FilterSheetProps> = ({
         </section>
 
         <section className={styles.section}>
-          <h3 className={styles.sectionTitle}>Size</h3>
+          <h3 className={styles.sectionTitle}>Размер</h3>
           <div className={styles.chips}>
             {SIZES.map((size) => (
               <button
@@ -178,7 +178,7 @@ export const FilterSheet: React.FC<FilterSheetProps> = ({
         </section>
 
         <section className={styles.section}>
-          <h3 className={styles.sectionTitle}>Color</h3>
+          <h3 className={styles.sectionTitle}>Цвет</h3>
           <div className={styles.colors}>
             {COLOR_SWATCHES.map((color) => (
               <button
@@ -203,7 +203,7 @@ export const FilterSheet: React.FC<FilterSheetProps> = ({
         </section>
 
         <section className={styles.section}>
-          <h3 className={styles.sectionTitle}>Sort By</h3>
+          <h3 className={styles.sectionTitle}>Сортировка</h3>
           <div className={styles.radioList}>
             {SORT_OPTIONS.map((opt) => (
               <button
@@ -226,10 +226,10 @@ export const FilterSheet: React.FC<FilterSheetProps> = ({
           onClick={handleReset}
           disabled={!hasActiveFilters}
         >
-          Reset
+          Сбросить
         </Button>
         <Button variant="gold" onClick={handleApply} className={styles.applyBtn}>
-          Apply Filters
+          Применить фильтры
         </Button>
       </div>
     </Modal>

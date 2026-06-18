@@ -120,17 +120,17 @@ export const ProfilePage: React.FC = observer(() => {
         >
           <div className={styles.stat}>
             <span className={styles.statValue}>{user.ordersCount}</span>
-            <span className={styles.statLabel}>Orders</span>
+            <span className={styles.statLabel}>Заказы</span>
           </div>
           <div className={styles.statDivider} />
           <div className={styles.stat}>
             <span className={styles.statValue}>{favoriteCount}</span>
-            <span className={styles.statLabel}>Favorites</span>
+            <span className={styles.statLabel}>Избранное</span>
           </div>
           <div className={styles.statDivider} />
           <div className={styles.stat}>
             <span className={styles.statValue}>{cartTotalItems}</span>
-            <span className={styles.statLabel}>In Bag</span>
+            <span className={styles.statLabel}>В корзине</span>
           </div>
         </motion.div>
 
@@ -142,28 +142,28 @@ export const ProfilePage: React.FC = observer(() => {
         >
           <MenuItem
             icon={<OrdersIcon />}
-            label="My Orders"
+            label="Мои заказы"
             onClick={() => navigate('/orders')}
           />
           <MenuItem
             icon={<HeartIcon />}
-            label="Favorites"
+            label="Избранное"
             value={`${favoriteCount}`}
             onClick={() => navigate('/favorites')}
           />
           <MenuItem
             icon={<SettingsIcon />}
-            label="Settings"
+            label="Настройки"
             onClick={() => navigate('/settings')}
           />
           <MenuItem
             icon={<HelpIcon />}
-            label="Help & Support"
+            label="Помощь и поддержка"
             onClick={() => navigate('/help')}
           />
           <MenuItem
             icon={<InfoIcon />}
-            label="About"
+            label="О нас"
             onClick={() => navigate('/about')}
           />
         </motion.div>
@@ -181,7 +181,7 @@ export const ProfilePage: React.FC = observer(() => {
             onClick={handleSignOut}
             icon={<LogoutIcon />}
           >
-            Sign Out
+            Выйти
           </Button>
         </motion.div>
 

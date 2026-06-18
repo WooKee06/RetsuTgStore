@@ -1,5 +1,4 @@
-import React from "react";
-import { NavLink, useLocation } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { motion } from "framer-motion";
 import { observer } from "mobx-react-lite";
 import { cartStore, favoriteStore } from "@store";
@@ -16,7 +15,7 @@ interface NavItem {
 const navItems: NavItem[] = [
   {
     path: "/",
-    label: "Home",
+    label: "Главная",
     icon: (
       <svg
         width="31"
@@ -44,7 +43,7 @@ const navItems: NavItem[] = [
   },
   {
     path: "/catalog",
-    label: "Catalog",
+    label: "Каталог",
     icon: (
       <svg
         width="31"
@@ -71,7 +70,7 @@ const navItems: NavItem[] = [
   },
   {
     path: "/favorites",
-    label: "Favorites",
+    label: "Избранное",
     icon: (
       <svg
         width="31"
@@ -92,7 +91,7 @@ const navItems: NavItem[] = [
   },
   {
     path: "/cart",
-    label: "Cart",
+    label: "Корзина",
     icon: (
       <svg
         width="31"
@@ -128,30 +127,16 @@ export const BottomNav: React.FC = observer(() => {
   const cartCount = cartStore.totalItems;
   const favCount = favoriteStore.count;
   const user = false;
-  const location = useLocation();
 
   const badges: Record<string, number> = {
     "/favorites": favCount,
     "/cart": cartCount,
   };
 
-  const activeIndex = navItems.findIndex((item) => {
-    if (item.path === "/") return location.pathname === "/";
-    return location.pathname.startsWith(item.path);
-  });
-
-  const indicatorLeft = `${(activeIndex / navItems.length) * 100}%`;
-  const indicatorWidth = `${100 / navItems.length}%`;
-
   return (
     <div className={styles.navWrapper}>
       <nav className={styles.nav}>
         <div className={styles.inner}>
-          <motion.div
-            className={styles.indicator}
-            animate={{ left: indicatorLeft, width: 40 }}
-            transition={{ type: "spring", duration: 2 }}
-          />
           {navItems.map((item) => (
             <NavLink
               key={item.path}

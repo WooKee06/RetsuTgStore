@@ -1,4 +1,4 @@
-@use 'tokens' as *;
+@use "tokens" as *;
 
 *,
 *::before,
@@ -74,7 +74,8 @@ textarea {
   background: none;
 }
 
-ul, ol {
+ul,
+ol {
   list-style: none;
 }
 
@@ -97,4 +98,8 @@ ul, ol {
 input:-webkit-autofill {
   -webkit-box-shadow: 0 0 0 30px $color-bg-tertiary inset !important;
   -webkit-text-fill-color: $color-text-primary !important;
+}
+
+main {
+  margin: 20px 0;
 }

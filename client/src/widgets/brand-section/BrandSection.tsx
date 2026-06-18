@@ -18,7 +18,7 @@ export const BrandSection: React.FC<BrandSectionProps> = ({ brands, className })
 
   return (
     <section className={cn(styles.section, className)}>
-      <h2 className={styles.title}>Popular Brands</h2>
+      <h2 className={styles.title}>Популярные бренды</h2>
       <motion.div
         className={styles.scroll}
         variants={staggerContainer}
