@@ -1,8 +1,8 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-import { staggerContainer, staggerItem } from '@shared/lib/motion';
-import type { Category } from '@shared/types';
-import styles from './CategoryList.module.scss';
+import React from "react";
+import { motion } from "framer-motion";
+import { staggerContainer, staggerItem } from "@shared/lib/motion";
+import type { Category } from "@shared/types";
+import styles from "./CategoryList.module.scss";
 
 interface CategoryListProps {
   categories: Category[];
@@ -19,7 +19,7 @@ export const CategoryList: React.FC<CategoryListProps> = ({
 }) => {
   return (
     <motion.div
-      className={`${styles.list} ${className || ''}`}
+      className={`${styles.list} ${className || ""}`}
       variants={staggerContainer}
       initial="hidden"
       animate="visible"
@@ -27,7 +27,7 @@ export const CategoryList: React.FC<CategoryListProps> = ({
       {categories.map((category) => (
         <motion.button
           key={category.id}
-          className={`${styles.item} ${activeCategory === category.id ? styles.active : ''}`}
+          className={`${styles.item} ${activeCategory === category.id ? styles.active : ""}`}
           variants={staggerItem}
           onClick={() => onSelect?.(category.id)}
           whileTap={{ scale: 0.93 }}
@@ -48,7 +48,7 @@ export const CategoryList: React.FC<CategoryListProps> = ({
               </div>
             )}
           </div>
-          <span className={styles.name}>{category.name}</span>
+          <span className={styles.name}>{category.name} </span>
         </motion.button>
       ))}
     </motion.div>

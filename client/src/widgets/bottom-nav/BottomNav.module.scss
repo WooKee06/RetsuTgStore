@@ -1,16 +1,43 @@
 @use "@styles/tokens" as *;
 
 .nav {
+  background: rgba(10, 10, 10, 0.85);
+  backdrop-filter: blur(20px);
+  border-radius: 30px;
+  flex: 1;
+  border-top: 1px solid $color-border;
+  padding-bottom: env(safe-area-inset-bottom, 0);
+}
+
+.navWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+
   position: fixed;
   bottom: 10px;
   left: 10px;
   right: 10px;
   z-index: $z-sticky;
-  background: rgba(10, 10, 10, 0.85);
-  backdrop-filter: blur(20px);
-  border-radius: 30px;
-  border-top: 1px solid $color-border;
-  padding-bottom: env(safe-area-inset-bottom, 0);
+}
+
+.profilebtn {
+  width: 64px;
+  height: 64px;
+  background-color: rgba(51, 49, 49, 0.23);
+  backdrop-filter: blur(10px);
+  border: 1px solid #ffffff2d;
+  border-radius: 999px;
+  padding: 2px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  > img {
+    border-radius: 999px;
+  }
 }
 
 .inner {
@@ -20,6 +47,16 @@
   height: $bottom-nav-height;
   max-width: $max-width;
   margin: 0 auto;
+  position: relative;
+}
+
+.indicator {
+  position: absolute;
+  top: 5px;
+  bottom: 5px;
+  background: #ffffff12;
+  border-radius: 46px;
+  z-index: 0;
 }
 
 .link {
@@ -30,6 +67,8 @@
   text-decoration: none;
   padding: $space-2 0;
   -webkit-tap-highlight-color: transparent;
+  position: relative;
+  z-index: 1;
 }
 
 .linkInner {

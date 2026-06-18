@@ -1,9 +1,8 @@
-@use '@styles/tokens' as *;
+@use "@styles/tokens" as *;
 
 .footer {
-  background: $color-bg-secondary;
   padding-top: $space-10;
-  padding-bottom: 120px;
+  padding-bottom: 2%;
 }
 
 .content {

@@ -70,7 +70,7 @@ export const ProductCard: React.FC<ProductCardProps> = observer(
             )}
           </div>
           <div className={styles.listContent}>
-            <span className={styles.brand}>{product.brand}</span>
+            <span className={styles.brand}>{product.brand} </span>
             <h3 className={styles.name}>{product.name}</h3>
             <Rating
               value={product.rating}
@@ -118,13 +118,7 @@ export const ProductCard: React.FC<ProductCardProps> = observer(
             loading="lazy"
             onLoad={() => setImageLoaded(true)}
           />
-          {firstBadge && (
-            <span className={styles.badge}>
-              <Badge variant={badgeVariantMap[firstBadge] || "gold"}>
-                {firstBadge}
-              </Badge>
-            </span>
-          )}
+
           <button
             className={styles.heartBtn}
             onClick={handleFavoriteClick}
@@ -141,13 +135,15 @@ export const ProductCard: React.FC<ProductCardProps> = observer(
           </button>
         </div>
         <div className={styles.content}>
-          <span className={styles.brand}>{product.brand}</span>
-          <h3 className={styles.name}>{product.name}</h3>
-          <Rating
-            value={product.rating}
-            count={product.reviewCount}
-            size="sm"
-          />
+          <h3 className={styles.name}>
+            {product.name.length >= 2
+              ? product.name.slice(0, 10)
+              : product.name}
+          </h3>
+
+          <p className={styles.description}>
+            {product.description.slice(0, 30) + "..."}
+          </p>
           <Price price={product.price} oldPrice={product.oldPrice} size="md" />
         </div>
       </motion.div>

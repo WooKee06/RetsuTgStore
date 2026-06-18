@@ -1,4 +1,4 @@
-@use '@styles/tokens' as *;
+@use "@styles/tokens" as *;
 
 .badge {
   display: inline-flex;
@@ -9,7 +9,7 @@
   font-size: $font-size-xs;
   font-weight: $font-weight-semibold;
   letter-spacing: $letter-spacing-wide;
-  text-transform: uppercase;
+  text-transform: lowercase;
   line-height: 1;
   white-space: nowrap;
   user-select: none;
@@ -42,7 +42,7 @@
 }
 
 .limited {
-  background: #8B5CF6;
+  background: #8b5cf6;
   color: $color-white;
 }
 
